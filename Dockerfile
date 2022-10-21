@@ -1,4 +1,4 @@
-FROM nginx:1.13
+FROM nginx:1.23
 
 COPY cert.crt /etc/nginx/cert.crt
 COPY cert.key /etc/nginx/cert.key

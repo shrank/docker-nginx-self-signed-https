@@ -4,7 +4,7 @@ mkdir -p /etc/nginx/snippets/
 mkdir -p /etc/nginx/certs/
 cd /etc/nginx/certs/
 
-if [ ! -f cert.pem ] || [ ! -f key.pem ]; then
+if [ ! -f cert.key ] || [ ! -f cert.crt ]; then
   openssl req -subj '/CN=localhost' -x509 -newkey rsa:4096 -nodes -keyout cert.key -out cert.crt -days 365
 fi
 

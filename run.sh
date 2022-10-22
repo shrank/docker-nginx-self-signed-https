@@ -5,7 +5,7 @@ mkdir -p /etc/nginx/certs/
 cd /etc/nginx/certs/
 
 if [ ! -f cert.pem ] || [ ! -f key.pem ]; then
-  openssl req -subj '/CN=localhost' -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days 365
+  openssl req -subj '/CN=localhost' -x509 -newkey rsa:4096 -nodes -keyout cert.key -out cert.crt -days 365
 fi
 
 if [ ! -f dhparam.pem ] && [ ! -z ${USE_DH+x} ]; then

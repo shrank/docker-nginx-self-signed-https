@@ -8,7 +8,7 @@ if [ ! -f cert.pem ] || [ ! -f key.pem ]; then
   openssl req -subj '/CN=localhost' -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days 365
 fi
 
-if [ ! -f dhparam.pem ] || [ ! -z ${USE_DH+x} ]; then
+if [ ! -f dhparam.pem ] && [ ! -z ${USE_DH+x} ]; then
  openssl dhparam -out dhparam.pem 4096
  echo """
  ssl_dhparam /etc/nginx/certs/dhparam.pem;

@@ -18,4 +18,8 @@ fi
 
 sed -i -e "s|XX_REMOTE_URL_XX|$REMOTE_URL|g" /etc/nginx/conf.d/default.conf
 
+if [ ! -z ${NGINX_PORT+x} ]; then
+  sed -i -e "s|XX_NGINX_PORT_XX|$NGINX_PORT|g" /etc/nginx/conf.d/default.conf
+fi
+
 exec nginx -g "daemon off;"

@@ -23,4 +23,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: latest
+          tags: "shrank3000/docker-nginx-self-signed-https:latest"

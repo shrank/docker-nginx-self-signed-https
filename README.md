@@ -7,8 +7,21 @@ local running service. It acts as a HTTP terminating proxy.
 
 ## Usage
 
-```bash
-docker run -d --name app-proxy --net host \
-           -e REMOTE_URL=http://127.0.0.1:8080 \
-           shrank3000/docker-nginx-self-signed-https:latest
 ```
+version: '3'
+
+volumes:
+  ssl_cert: {}
+
+services:
+  frontend:
+    image: shrank3000/docker-nginx-self-signed-https:latest
+    volumes:
+      - ssl_cert:/etc/nginx/certs/
+    ports:
+      - "443:443"
+    environment:
+      - REMOTE_URL="http://your-app-container:80"
+```
+
+This will cerate new certs on startup.
